@@ -1,0 +1,508 @@
+html, body, .machine {
+    height: 100%;
+}
+
+body {
+    background: #C5DEF1;
+}
+
+.machine {
+    transform: scale(0.7);
+}
+
+/* cube and sphere positioning */
+
+.cube {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 300px;
+}
+
+.cube.two {
+    z-index: 2;
+    top: 617px;
+    left: 50%;
+    margin-left: -200px;
+}
+
+.cube.three {
+    z-index: 10;
+    top: 532px;
+    left: 50%;
+    margin-left: -400px;
+}
+
+.cube.four {
+    z-index: 10;
+    top: 217px;
+    left: 50%;
+    margin-left: -200px;
+}
+
+.cube.five {
+    z-index: 10;
+    top: 532px;
+    left: calc(50% + 200px);
+    margin-left: -200px;
+}
+
+.cube.six {
+    z-index: 1;
+    top: 300px;
+    left: calc(50% - 200px);
+    margin-left: -200px;
+}
+
+.sphere {
+    position: relative;
+    left: calc(50% - 100px);
+    top: 350px;
+    z-index: 5;
+    display: block;
+    background: black;
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    margin: 0;
+    background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+    -webkit-animation: bouncing 0.5s infinite alternate;
+}
+
+.cube:hover {
+    -webkit-transform: translate(202px, -115px);
+    -moz-transform: translate(202px, -115px);
+    -o-transform: translate(202px, -115px);
+    -ms-transform: translate(202px, -115px);
+    transform: translate(202px, -115px);
+}
+
+.cube.two:hover {
+    -webkit-transform: translate(0, 115px);
+    -moz-transform: translate(0, 115px);
+    -o-transform: translate(0, 115px);
+    -ms-transform: translate(0, 115px);
+    transform: translate(0, 115px);
+}
+
+.cube.three:hover {
+    -webkit-transform: translate(-202px, 115px);
+    -moz-transform: translate(-202px, 115px);
+    -o-transform: translate(-202px, 115px);
+    -ms-transform: translate(-202px, 115px);
+    transform: translate(-202px, 115px);
+}
+
+.cube.four:hover {
+    -webkit-transform: translate(0, -115px);
+    -moz-transform: translate(0, -115px);
+    -o-transform: translate(0, -115px);
+    -ms-transform: translate(0, -115px);
+    transform: translate(0, -115px);
+}
+
+.cube.five:hover {
+    -webkit-transform: translate(202px, 115px);
+    -moz-transform: translate(202px, 115px);
+    -o-transform: translate(202px, 115px);
+    -ms-transform: translate(202px, 115px);
+    transform: translate(202px, 115px);
+}
+
+.cube.six:hover {
+    -webkit-transform: translate(-202px, -115px);
+    -moz-transform: translate(-202px, -115px);
+    -o-transform: translate(-202px, -115px);
+    -ms-transform: translate(-202px, -115px);
+    transform: translate(-202px, -115px);
+}
+
+/* cube face positioning and orientation */
+
+.rightFace,
+.leftFace,
+.backLeftFace,
+.backRightFace,
+.topFace {
+    padding: 10px;
+    width: 180px;
+    height: 179px;
+}
+
+.rightFace,
+.leftFace,
+.backLeftFace,
+.backRightFace,
+.topFace {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightFace,
+.leftFace,
+.topFace {
+    z-index: 5;
+}
+
+.backLeftFace,
+.backRightFace{
+    z-index: 4;
+}
+
+.leftFace {
+    -webkit-transform: skew(0deg, 30deg);
+    -moz-transform: skew(0deg, 30deg);
+    -o-transform: skew(0deg, 30deg);
+    -ms-transform: skew(0deg, 30deg);
+    transform: skew(0deg, 30deg);
+}
+
+.rightFace {
+    -webkit-transform: skew(0deg, -30deg);
+    -moz-transform: skew(0deg, -30deg);
+    -o-transform: skew(0deg, -30deg);
+    -ms-transform: skew(0deg, -30deg);
+    transform: skew(0deg, -30deg);
+    left: 200px;
+}
+
+.backLeftFace {
+    position: relative;
+    top: -116px;
+    -webkit-transform: skew(0deg, -30deg);
+    -moz-transform: skew(0deg, -30deg);
+    -o-transform: skew(0deg, -30deg);
+    -ms-transform: skew(0deg, -30deg);
+    transform: skew(0deg, -30deg);
+}
+
+.backRightFace {
+    position: relative;
+    top: -318px;
+    left: 200px;
+    -webkit-transform: skew(0deg, 30deg);
+    -moz-transform: skew(0deg, 30deg);
+    -o-transform: skew(0deg, 30deg);
+    -ms-transform: skew(0deg, 30deg);
+    transform: skew(0deg, 30deg);
+}
+
+.topFace {
+    -webkit-transform: rotateZ(-30deg) skewX(30deg);
+    -moz-transform: rotateZ(-30deg) skewX(30deg);
+    -o-transform: rotateZ(-30deg) skewX(30deg);
+    -ms-transform: rotateZ(-30deg) skewX(30deg);
+    transform: rotateZ(-30deg) skewX(30deg);
+    height: 182px;
+    width: 212px;
+    top: -159px;
+    left: 84px;
+}
+
+/* cube window orientations */
+
+.window {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(#A3A5A8 0%, transparent 125%);
+}
+
+.window-top {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(#A3A5A8 0%, transparent 125%);
+}
+
+.leftFace .window, .rightFace .window {
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+}
+
+.leftFace:hover .window, .rightFace:hover .window {
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -o-border-radius: 40px;
+    -ms-border-radius: 40px;
+    border-radius: 40px;
+}
+
+.leftFace:hover .window {
+    -webkit-transform: rotateZ(180deg);
+    -moz-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.rightFace:hover .window {
+    -webkit-transform: rotateZ(180deg);
+    -moz-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.topFace:hover .window-top {
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -o-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+}
+
+/* dots */
+
+.dot-left, .dot-right, .dot-bottom, .dot-top {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #91C2EC;
+}
+
+.leftFace .dot-left {
+    left: -18px;
+    top: 35px;
+}
+
+.leftFace .dot-right {
+    left: 88px;
+    top: 35px;
+}
+
+.leftFace .dot-top {
+    left: 32px;
+    top: 92px;
+}
+
+.leftFace .dot-bottom {
+    left: 32px;
+    top: -22px;
+}
+
+.rightFace .dot-left {
+    left: -18px;
+    top: 36px;
+}
+
+.rightFace .dot-right {
+    left: 90px;
+    top: 43px;
+}
+
+.rightFace .dot-top {
+    left: 34px;
+    top: -21px;
+}
+
+.rightFace .dot-bottom {
+    left: 34px;
+    top: 93px;
+}
+
+.backLeftFace .dot-left {
+    left: 43px;
+    top: 92px;
+}
+
+.backLeftFace .dot-right {
+    left: 148px;
+    top: 94px;
+}
+
+.backLeftFace .dot-top {
+    left: 95px;
+    top: 36px;
+}
+
+.backLeftFace .dot-bottom {
+    left: 95px;
+    top: 150px;
+}
+
+.backRightFace .dot-left {
+    left: 43px;
+    top: 92px;
+}
+
+.backRightFace .dot-right {
+    left: 148px;
+    top: 94px;
+}
+
+.backRightFace .dot-top {
+    left: 95px;
+    top: 36px;
+}
+
+.backRightFace .dot-bottom {
+    left: 95px;
+    top: 150px;
+}
+
+.topFace .dot-left {
+    left: 55px;
+    top: 95px;
+}
+
+.topFace .dot-right {
+    left: 167px;
+    top: 95px;
+}
+
+.topFace .dot-top {
+    left: 112px;
+    top: 40px;
+}
+
+.topFace .dot-bottom {
+    left: 112px;
+    top: 150px;
+}
+
+.topFace:hover .dot-left {
+    transform: rotate(-45deg) translateY(75px);
+}
+
+.topFace:hover .dot-right {
+    transform: rotate(-45deg) translateY(-75px);
+}
+
+.topFace:hover .dot-top {
+    transform: rotate(-45deg) translateX(-75px);
+}
+
+.topFace:hover .dot-bottom {
+    transform: rotate(-45deg) translateX(75px);
+}
+
+
+/* cube face colours */
+
+
+.leftFace {
+    background-color: #B3D4C4;
+    /*background: radial-gradient(#B3D4C4 0%, transparent 125%);*/
+    opacity: 0.7;
+}
+
+.rightFace {
+    background-color: #CEEDDD;
+    /*background: radial-gradient(#CEEDDD 0%, transparent 125%);*/
+    opacity: 0.7;
+}
+
+.topFace {
+    background-color: #CEF2CE;
+    opacity: 0.55;
+}
+
+.backLeftFace {
+    background-color: #B3D4C4;
+    /*background: radial-gradient(#B3D4C4 0%, transparent 125%);*/
+    opacity: 0.7;
+}
+
+.backRightFace {
+    background-color: #CEEDDD;
+    /*background: radial-gradient(#CEEDDD 0%, transparent 125%);*/
+    opacity: 0.7;
+}
+
+.cube:hover .leftFace {
+    background-color: #ccc;
+    opacity: 1;
+}
+
+.cube:hover .rightFace {
+    background-color: #ddd;
+    opacity: 1;
+}
+
+.cube:hover .backLeftFace {
+    background-color: #ccc;
+    opacity: 1;
+}
+
+.cube:hover .backRightFace {
+    background-color: #ddd;
+    opacity: 1;
+}
+
+.cube:hover .topFace {
+    background-color: #eee;
+    opacity: 1;
+}
+
+
+/* Transitions */
+
+
+.topFace, .leftFace, .rightFace, .leftFace, .rightFace, .dot-top, .dot-right, .dot-left, .dot-bottom, .window-top {
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.cube, .window {
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    -ms-transition: all 1s linear;
+    transition: all 1s linear;
+}
+
+/* Animation (for bouncing only) */
+
+@-webkit-keyframes bouncing {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-50px);
+    }
+}
+
+@keyframes bouncing {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-50px);
+    }
+}
+
+@-webkit-keyframes circling {
+    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes bouncing {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-50px);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .machine {
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .machine {
+        transform: scale(0.3);
+    }
+}
