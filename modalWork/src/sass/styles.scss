@@ -1,0 +1,214 @@
+@import 'trigFunctions';
+@import 'keyframes';
+
+
+$modal-width: 500px;
+
+
+@mixin prefix($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.5em;
+    color: #666;
+    background: #f1ebe2;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    margin-top: 10%;
+    display: inline-block;
+    margin-left: calc(50% - 111px);
+    margin-right: 0;
+}
+
+.inc-comp {
+    transform: translateY(-242px) translateX(155px) rotate(90deg);
+    display: inline-block;
+    position: absolute;
+    font-size: 2em;
+}
+
+.inc-comp p {
+    margin-bottom: 17px;
+}
+
+.arrow {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.arrow-body {
+    border: 1.3px solid #878787;
+}
+
+.arrow-left-arm {
+    border: 1.3px solid #878787;
+    width: 8%;
+    transform: translateX(270px) translateY(-10px) rotate(26deg);
+}
+
+.arrow-right-arm {
+    border: 1.3px solid #878787;
+    width: 8%;
+    transform: translateX(270px) translateY(1.5px) rotate(-26deg);
+}
+
+/* Modal positioning */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+
+    @include prefix(transition, opacity 500ms linear, webkit ms moz o);
+
+    opacity: 0;
+    pointer-events: none;
+
+    > div {
+        width: $modal-width;
+
+        //width: pow(calc(1vw + 100px)/1px, 1);
+        background: #fff;
+        position: relative;
+        margin: 10% auto;
+
+        padding: 30px;
+        border-radius: 7px;
+        box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+        background: #fff;
+        @include prefix(background, linear-gradient(#fff, #ccc), webkit ms moz);
+        text-shadow: 0 1px 0 #fff;
+    }
+
+}
+
+/* Modal behaviour on open */
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+// Make modal smaller for stumble animation, because of spacing
+.modal.stumble > div {
+    width: $modal-width/2;
+}
+
+/* Animations when modal is visible (ie. animation with which it disappears) */
+
+.modal.pulse, .modal.spiral, .modal.rise, .modal.stumble, .modal.float, .modal.spring {
+    > div {
+        @include prefix(animation, shrink 500ms linear, webkit ms moz);
+    }
+}
+/* Animations when modal is hidden (ie. animation with which modal appears) */
+
+.modal.pulse:target > div {
+    @include prefix(animation, pulse 500ms linear, webkit ms moz);
+}
+
+.modal.spiral:target > div {
+    @include prefix(animation, spiral 1.5s linear, webkit ms moz);
+}
+
+.modal.rise:target > div {
+    @include prefix(animation, rise 1.5s cubic-bezier(.47, .06, .42, .91), webkit moz);
+}
+
+.modal.stumble:target > div {
+    animation: stumble-1 0.2s linear, stumble-2 0.4s 0.2s ease-out;
+    //@include prefix(animation, stumble 0.8s linear, webkit ms moz);
+}
+
+.modal.float:target > div {
+    @include prefix(animation, float 3s ease, webkit ms moz);
+}
+
+.modal.spring:target > div {
+    animation: spring-1 0.3s linear, spring-2 0.3s 0.3s linear, spring-3 0.5s 0.6s ease-out, spring-4 0.4s 1.1s cubic-bezier(.15, .89, .24, 1);
+}
+
+//.arrow:hover {
+//    @include prefix(animation, arrow-pulse 0.75s linear infinite, webkit ms moz);
+//}
+
+.modal h2 {
+    font-size: 36px;
+    padding: 0 0 20px;
+}
+
+/* Close button */
+.modal a[href="#close"] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: transparent;
+}
+
+.modal a[href="#close"]:focus {
+    outline: none;
+}
+
+.modal a[href="#close"]:after {
+    content: 'X';
+    display: block;
+
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 1.5em;
+    padding: 1px 1px 1px 2px;
+
+    text-decoration: none;
+    text-shadow: none;
+    text-align: center;
+    font-weight: bold;
+    background: #000;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.modal a[href="#close"]:focus:after,
+.modal a[href="#close"]:hover:after {
+    @include prefix(transform, scale(1.1,1.1), webkit moz);
+}
+
+.modal a[href="#close"]:focus:after {
+    outline: 1px solid #000;
+}
+
+/* Open modal */
+a.openModal {
+    margin: 1em auto;
+    display: block;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 7px;
+    @include prefix(background, linear-gradient(#fff, #ddd), webkit moz o);
+    text-shadow: 0 1px 0 #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+a.openModal:hover,
+a.openModal:focus {
+    @include prefix(background, linear-gradient(#fff, #ccc), webkit moz o);
+}
+
+
+@media screen and (max-width: 750px) {
+    .modal div {
+        width: 65vw;
+    }
+}
+
