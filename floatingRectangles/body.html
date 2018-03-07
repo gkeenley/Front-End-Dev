@@ -1,0 +1,31 @@
+<!-- Gabe Keenleyside -->
+<!-- 250 470 571 -->
+<!-- CS 3388 -->
+<!-- Assignment #1 -->
+
+
+<!-- Module: Javascript Prep -->
+<!-- Author: Gabe Keenleyside -->
+<!-- Date: 02/10/16 -->
+<!-- Purpose: Initialize HTML page to recognize and interpret Javascript code. -->
+
+<html>
+	<head>
+    	<title>Floating rectangles</title> <!-- Title in HTML page. -->
+    	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"> <!-- Character encoding declaration. -->
+    	<script id="shader-vs" type="x-shader/x-vertex" src="js/vertShader.js"></script>
+    	<script id="shader-fs" type="x-shader/x-fragment" src="js/fragShader.js"></script>
+
+	    <script type="text/javascript" src="js/glMatrix-0.9.5.min.js"></script> <!-- First minified .js file needed for program to run. -->
+	    <script type="text/javascript" src="js/webgl-utils.js"></script> <!-- Second .js file needed for program to run. -->
+	    <script type="text/javascript" src="js/main.js"></script>
+    </head>
+        <!-- When script runs and HTML page loads, initiate drawing of initial state of rectangles, via function 'webGLStart'. -->
+    <body onload="webGLStart();">
+    <!-- Display WebGL image.
+        Declare parameters for window, according to 'canvas'. -->
+        <canvas id="myCanvas" style="border: none;" width="1279" height="595"></canvas>
+        <br/>
+    </body>
+</html>
+<!-- END 'HTML Body'

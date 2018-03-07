@@ -1,0 +1,3 @@
+- Please run /index.html in your browser
+- Animated spheres with reflective surfaces rendered using the ray cast method will display in the middle of the screen. Please use the input boxes to control the animation.
+- Uses HTML5 and JS/WebGL
